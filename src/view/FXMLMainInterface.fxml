@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="pnMainInterface" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLMainInterfaceController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Arquivos">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openFile" text="Carregar" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Salvar" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Rede">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#addComponent" text="Adicionar" />
+                  <MenuItem mnemonicParsing="false" onAction="#removeComponent" text="Remover" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane fx:id="APNetwork" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#updateCoordinate" prefHeight="515.0" prefWidth="760.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></AnchorPane>
+   </center>
+   <right>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="554.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="vbAllComponents" prefHeight="513.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="lblCoordenatX" prefHeight="50.0" prefWidth="200.0" text="X:  ">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblCoordenatY" prefHeight="50.0" prefWidth="200.0" text="Y: ">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnAddConection" mnemonicParsing="false" onAction="#addConection" prefHeight="25.0" prefWidth="200.0" text="Adicionar Conexão" />
+                  <Button fx:id="btnSaveNewComponet" mnemonicParsing="false" onAction="#saveComponent" prefHeight="25.0" prefWidth="200.0" text="Salvar" />
+                  <Button fx:id="btnRemove" mnemonicParsing="false" onAction="#confirmRemove" prefHeight="25.0" prefWidth="200.0" text="Remover" />
+                  <RadioButton fx:id="rbtComputador" mnemonicParsing="false" prefHeight="17.0" prefWidth="200.0" selected="true" text="Computador">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="terminal" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbtRoteador" mnemonicParsing="false" prefHeight="17.0" prefWidth="201.0" text="Roteador" toggleGroup="$terminal">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <Button fx:id="btnRemoveConection" mnemonicParsing="false" onAction="#removeConection" prefHeight="25.0" prefWidth="199.0" text="Remover Conexão" />
+               </children>
+            </VBox>
+         </content></ScrollPane>
+   </right>
+</BorderPane>
